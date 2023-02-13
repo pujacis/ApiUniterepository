@@ -18,5 +18,10 @@ namespace InterfaceEntity.Models
         public int StateId { get; set;}
         public int CityId { get; set; }
         public int AddressID { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string UploadFile { get; set; }
+        public string base64data { get; set; }
+        public string contentType { get; set; }
     }
 }
