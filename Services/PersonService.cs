@@ -88,7 +88,7 @@ namespace Services
                     person.Email = persondetails.Email;
                     person.CountryId = persondetails.CountryId;
                     person.StateId = persondetails.StateId;
-                    person.AddressID = persondetails.AddressID;
+                   // person.AddressID = persondetails.AddressID;
                     person.CityId = persondetails.CityId;
                     _unitOfWork.taskperson.Update(person);
 
