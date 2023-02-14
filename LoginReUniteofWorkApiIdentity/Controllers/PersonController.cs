@@ -28,8 +28,8 @@ namespace LoginReUniteofWorkApiIdentity.Controllers
             return Ok(personDetailsList);
         }
 
-       
         [HttpGet("{productId}")]
+       // [HttpGet]
         public async Task<IActionResult> GetPersonById(int personid)
         {
             var persontDetails = await _personService.GetPersonById(personid);
@@ -64,14 +64,14 @@ namespace LoginReUniteofWorkApiIdentity.Controllers
 
      
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct(TaskPerson personDetails)
+        public async Task<IActionResult> UpdatePerson(TaskPerson personDetails)
         {
             if (personDetails != null)
             {
                 var ispersonCreated = await _personService.UpdatePerson(personDetails);
                 if (ispersonCreated)
                 {
-                    return Ok(ispersonCreated);
+                    return Ok(personDetails);
                 }
                 return BadRequest();
             }
@@ -81,9 +81,11 @@ namespace LoginReUniteofWorkApiIdentity.Controllers
             }
         }
 
+
+        // [HttpDelete("{personId}")]
+         [HttpDelete]
      
-        [HttpDelete("{productId}")]
-        public async Task<IActionResult> DeleteProduct(int personid)
+        public async Task<IActionResult> DeletePerson(int personid)
         {
             var ispersontCreated = await _personService.DeletePerson(personid);
 
@@ -96,7 +98,8 @@ namespace LoginReUniteofWorkApiIdentity.Controllers
                 return BadRequest();
             }
         }
-        
+     
+
     }
 
 }
