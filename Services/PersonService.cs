@@ -1,4 +1,5 @@
-﻿using InterfaceEntity.Interface;
+﻿using DataAccessLayer.DataContext;
+using InterfaceEntity.Interface;
 using InterfaceEntity.Models;
 using Services.Interfaces;
 using System;
@@ -12,7 +13,7 @@ namespace Services
     public class PersonService : ITaskpersonService
     {
         public IUnitOfWork _unitOfWork;
-
+      
         public PersonService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -57,7 +58,9 @@ namespace Services
 
         public async Task<IEnumerable<TaskPerson>> GetAllpersons()
         {
-            var persondetailsList = await _unitOfWork.taskperson.GetAll();
+         
+            
+        var persondetailsList = await _unitOfWork.taskperson.GetAll();
             return persondetailsList;
         }
 

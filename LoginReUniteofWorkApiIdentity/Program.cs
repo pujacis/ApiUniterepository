@@ -28,6 +28,8 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddDIServices(builder.Configuration);
 builder.Services.AddScoped<ITaskpersonService, PersonService>();
+builder.Services.AddScoped<ICountryServics, CountryServices>();
+
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<DataAccessLayerContext>()

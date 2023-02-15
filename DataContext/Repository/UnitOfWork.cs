@@ -14,7 +14,9 @@ namespace DataAccessLayer.Repository
        
         public IAddressRepository address { get; }
 
-        public ITaskPersonRepository taskperson { get; }
+        public ITaskPersonRepository taskperson { get; }       
+
+        public ICountryRepository country { get; }
 
         public UnitOfWork(DataAccessLayerContext dbContext,
                             ITaskPersonRepository personRepository , IAddressRepository Address)
@@ -26,8 +28,19 @@ namespace DataAccessLayer.Repository
 
         public int Save()
         {
-            
-            return _dbContext.SaveChanges();
+            using (var transaction = _dbContext.Database.BeginTransaction())
+            {
+                try
+                {
+                    _dbContext.SaveChanges();
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                }
+            }
+            return 0;
         }
 
         public void Dispose()

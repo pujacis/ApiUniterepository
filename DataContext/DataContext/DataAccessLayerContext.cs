@@ -24,6 +24,9 @@ namespace DataAccessLayer.DataContext
             base.OnModelCreating(builder);
 
         }
+        public DbSet<RepoWithCountry> country { get; set; }
+        public DbSet<RepoWithCountry> City { get; set; }
+        public DbSet<RepoWithCountry> State { get; set; }
         public DbSet<TaskPerson> TaskPerson { get; set; }
         public DbSet<Address> TaskAddress { get; set; }
     }

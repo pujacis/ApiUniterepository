@@ -1,4 +1,5 @@
-﻿using InterfaceEntity.Models;
+﻿using DataAccessLayer.DataContext;
+using InterfaceEntity.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ namespace LoginReUniteofWorkApiIdentity.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
+       
         public readonly ITaskpersonService _personService;
         public PersonController(ITaskpersonService productService)
         {
@@ -47,8 +49,8 @@ namespace LoginReUniteofWorkApiIdentity.Controllers
      
         [HttpPost]
         public async Task<IActionResult> CreatePerson(TaskPerson personDetails)
-            {         
-
+            {
+           
 
             var ispersonCreated = await _personService.CreatePerson(personDetails);
 
@@ -66,6 +68,7 @@ namespace LoginReUniteofWorkApiIdentity.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdatePerson(TaskPerson personDetails)
         {
+
             if (personDetails != null)
             {
                 var ispersonCreated = await _personService.UpdatePerson(personDetails);

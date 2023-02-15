@@ -11,6 +11,7 @@ namespace InterfaceEntity.Interface
         ITaskPersonRepository taskperson { get; }
 
         IAddressRepository address { get; }
+        ICountryRepository country { get; }
         int Save();
     }
 }
