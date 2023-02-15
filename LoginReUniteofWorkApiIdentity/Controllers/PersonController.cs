@@ -7,6 +7,7 @@ using Services.Interfaces;
 
 namespace LoginReUniteofWorkApiIdentity.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase
